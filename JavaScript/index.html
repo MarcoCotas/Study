@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+
+        /*
+        - Usei o const heading = document.querySelector("h1"); 
+        para não ter que constantemente estar a escrever document.querySelector("h1")
+        e assim tornar o código mais limpo e fácil de ler.
+
+        - Neste caso foi const em vez de let porque 
+        tenho a certeza que a variável não vai mudar.
+        */
+
+        function clica(){
+            const heading = document.querySelector("h1");
+            const paragraph = document.querySelector("p");
+            const button = document.querySelector("button");
+            if (heading.innerHTML === "Sofia???") {
+                heading.innerHTML  = "Gosto muito de ti" ;
+                paragraph.innerHTML = "Queres ver Office?";
+                button.innerHTML =  "Aliás, Amo-te <3";
+            } else {
+                heading.innerHTML  ="Sofia???";
+                paragraph.innerHTML = "Se não fores mesmo tu podes ignorar..";
+                button.innerHTML = "Sério? És mesmo?";
+            }
+
+     
+        }
+ 
+    </script>
+</head>
+<body>
+    <div class="container">        
+        <h1>Sofia???</h1>
+        <p>Se não fores mesmo tu podes ignorar..</p>
+        <button onclick="clica()">Se não fores não cliques aqui</button>
+    </div>
+    <footer>
+        <p>Direitos reservados por @Fucking Marco</p>
+    </footer>
+</body>
+    
+</html>
