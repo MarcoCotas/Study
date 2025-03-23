@@ -14,7 +14,13 @@ function getCpuChoice(num){
         return "Scissors"}
 }
 
-function playRound(userChoice, cpuChoice){
+function getHumanChoice(){
+    let humanChoice = prompt("Enter: Rock - Paper -Scissors").toLowerCase()
+    return humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)
+}
+
+
+function playRound(userChoice, cpuChoice, scores){
 
 
     if (userChoice == cpuChoice){
@@ -24,11 +30,14 @@ function playRound(userChoice, cpuChoice){
     } else if (userChoice == "Rock" && cpuChoice == "Scissors"||
         userChoice == "Paper" && cpuChoice == "Rock" ||
         userChoice == "Scissors" && cpuChoice == "Paper"){
+            scores.human++
             console.log("Nice One. You `Rock`")
-            return humanScore++
+            console.log(`The current score is You: ${scores.human} vs Machine ${scores.cpu}`)
+            
         } else{
+            scores.cpu++
             console.log("Ups. The machine got you :) ")
-            return cpuScore++
+            console.log(`The current score is You: ${scores.human} vs Machine ${scores.cpu}`)
             }
 
             
@@ -36,17 +45,18 @@ function playRound(userChoice, cpuChoice){
 
 
 function playGame(){
-const userChoice = prompt("Rock, Paper or Scissors?");
-const cpuChoice = getCpuChoice(3)
-let humanScore = 0
-let cpuScore = 0
+    let scores = {human: 0, cpu: 0}
+  
     for (let i=0; i<5; i++){
-        playRound(userChoice,cpuChoice)
+        const userChoice = getHumanChoice();
+        const cpuChoice = getCpuChoice(3)
+
+        playRound(userChoice,cpuChoice, scores)
     }
-    if (humanScore > cpuScore){
-        console.log(`Wow you just beat the machine by ${humanScore} to ${cpuScore}`)
-    } else if (cpuScore > humanScore){
-        console.log(`Ahaha don´t tell your mom but the result was: You: ${humanScore} vs Machine ${cpuScore}`)
+    if (scores.human > scores.cpu){
+        console.log(`Wow you just beat the machine by ${scores.human} to ${scores.cpu}`)
+    } else if (scores.cpu > scores.human){
+        console.log(`Ahaha don´t tell your mom but the result was: You: ${scores.human} vs Machine ${scores.cpu}`)
     }
 }
 
