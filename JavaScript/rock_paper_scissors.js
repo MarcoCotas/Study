@@ -14,9 +14,8 @@ function getCpuChoice(num){
         return "Scissors"}
 }
 
-function playGame(){
-    const userChoice = prompt("Rock, Paper or Scissors?");
-    const cpuChoice = getCpuChoice(3)
+function playRound(userChoice, cpuChoice){
+
 
     if (userChoice == cpuChoice){
         let result = "Tie"
@@ -25,12 +24,30 @@ function playGame(){
     } else if (userChoice == "Rock" && cpuChoice == "Scissors"||
         userChoice == "Paper" && cpuChoice == "Rock" ||
         userChoice == "Scissors" && cpuChoice == "Paper"){
-            let result ="Win"
-            console.log(result)
+            console.log("Nice One. You `Rock`")
+            return humanScore++
         } else{
-            let result ="Lose"
-            console.log(result)
+            console.log("Ups. The machine got you :) ")
+            return cpuScore++
             }
+
+            
+}
+
+
+function playGame(){
+const userChoice = prompt("Rock, Paper or Scissors?");
+const cpuChoice = getCpuChoice(3)
+let humanScore = 0
+let cpuScore = 0
+    for (let i=0; i<5; i++){
+        playRound(userChoice,cpuChoice)
+    }
+    if (humanScore > cpuScore){
+        console.log(`Wow you just beat the machine by ${humanScore} to ${cpuScore}`)
+    } else if (cpuScore > humanScore){
+        console.log(`Ahaha don´t tell your mom but the result was: You: ${humanScore} vs Machine ${cpuScore}`)
+    }
 }
 
 playGame()
