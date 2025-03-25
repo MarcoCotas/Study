@@ -4,6 +4,10 @@ const heading3 = document.createElement("h3");
 const mainDiv = document.createElement("div");
 const heading1 = document.createElement("h1");
 const paragraph = document.createElement("p");
+const btn = document.querySelector("#btn");
+btn.addEventListener("click", () => {
+  alert("Hello Marco");
+});
 
 redParagraph.classList.add("red-paragraph");
 redParagraph.textContent = "This is a red-paragraph";
