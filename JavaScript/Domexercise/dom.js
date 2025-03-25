@@ -5,9 +5,7 @@ const mainDiv = document.createElement("div");
 const heading1 = document.createElement("h1");
 const paragraph = document.createElement("p");
 const btn = document.querySelector("#btn");
-btn.addEventListener("click", () => {
-  alert("Hello Marco");
-});
+const buttons = document.querySelectorAll("button");
 
 redParagraph.classList.add("red-paragraph");
 redParagraph.textContent = "This is a red-paragraph";
@@ -26,3 +24,13 @@ container.appendChild(heading3);
 mainDiv.appendChild(heading1);
 mainDiv.appendChild(paragraph);
 container.appendChild(mainDiv);
+
+btn.addEventListener("click", function (e) {
+  e.target.style.background = "blue";
+});
+
+buttons.forEach((button) => {
+  button.addEventListener("keyup", () => {
+    alert(button.id);
+  });
+});
